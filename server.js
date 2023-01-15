@@ -7,6 +7,8 @@ import cors from 'cors'
 
 import userRoutes from "./routes/userRouter.js";
 import messageRoutes from "./routes/messageRouter.js";
+import convRoutes from "./routes/conversationRouter.js";
+import messageRoutes from "./routes/messageRouter.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 const PORT = 5000;
@@ -31,9 +33,10 @@ app.use(cors())
 
 
 
-app.use("/auth", authRoutes);
 app.use("/users", userRoutes)
 app.use("/message", messageRoutes);
+app.use("/posts", postRoutes);
+app.use("/conversations", convRoutes);
 
 
 app.use(errorHandler);
