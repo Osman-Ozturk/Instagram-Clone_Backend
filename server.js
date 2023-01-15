@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from 'cors'
 
-import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/user.js";
+
+import userRoutes from "./routes/userRouter.js";
+import messageRoutes from "./routes/messageRouter.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 const PORT = 5000;
@@ -32,6 +33,7 @@ app.use(cors())
 
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes)
+app.use("/message", messageRoutes);
 
 
 app.use(errorHandler);
