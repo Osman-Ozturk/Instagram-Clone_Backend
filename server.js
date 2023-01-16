@@ -16,6 +16,10 @@ dotenv.config();
 const PORT =process.env.PORT || 5000;
 const URI = process.env.MONGODB_URL || "mongodb://localhost:27017/instagram_clone"
 
+import errorHandler from "./middleware/errorHandler.js";
+import postRoutes from './routes/postRouter.js'
+
+
 const app = express();
 
 //MongoDB connect
