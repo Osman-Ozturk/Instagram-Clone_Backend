@@ -8,8 +8,8 @@ import cors from 'cors'
 import userRoutes from "./routes/userRouter.js";
 import messageRoutes from "./routes/messageRouter.js";
 import convRoutes from "./routes/conversationRouter.js";
-import messageRoutes from "./routes/messageRouter.js";
 import errorHandler from "./middleware/errorHandler.js";
+import postRoutes from './routes/postRouter.js'
 
 const PORT = 5000;
 const app = express();
