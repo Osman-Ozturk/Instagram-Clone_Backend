@@ -41,10 +41,8 @@ const UserSchema = new mongoose.Schema(
                 type:Array,
                 default:[]
              },
-             isAdmin:{
-                type:Boolean,
-                default:false
-             },
+             isAdmin: {type: Boolean, default: false},
+        isVerified: { type: Boolean, default: false },
              desc : {
                 type :String,
                 default:''
