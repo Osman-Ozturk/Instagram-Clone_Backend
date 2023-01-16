@@ -1,21 +1,21 @@
 import Conversation from "../models/Conversation.js";
 
-const createConversation = async (req,res)=>{
-        const newConversation = new Conversation({members:[req.body.senderId,req.body.receiverId]})
+const createConversation = async (req,res,next)=>{
+        
         try {
-                const savedConversation = await newConversation.save()
-                res.status(201).json(savedConversation)
+                const newConversation = await Conversation.create({mitglieder:[req.body.senderId,req.body.empfängerId]})
+                res.status(201).json(newConversation)
         } catch (error) {
-           res.status(500).send(error)     
+           next(error)     
         }
 }
-const getConversation = async (req,res)=>{
+const getConversation = async (req,res,next)=>{
        
         try {
-             const conversation = await Conversation({members:{$in:[req.params.userId]}})  
+             const conversation = await Conversation.findOne({members:{$in:[req.params.userId]}})  
              res.status(201).json(conversation)
         } catch (error) {
-           res.status(500).send(error)     
+           next(error)     
         }
 }
 
