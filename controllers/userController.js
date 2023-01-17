@@ -148,7 +148,7 @@ const loginUser = async (req, res, next) => {
          maxAge: oneHour,
          httpOnly: true,
          sameSite: 'none',
-         //secure: true,
+         secure: true,
        })
        .json({
          auth: "loggedin",
