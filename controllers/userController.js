@@ -192,15 +192,15 @@ const unfollowUser = async (req,res)=>{
                  if (user.followers.includes(req.body.userId)) {
                   await user.updateOne({$pull : {followers:req.body.userId}})
                   await currentUser.updateOne({$pull : {followings:req.params.id}})
-                  res.status(201).json("User has been unfollowed");
+                  res.status(201).json("Dem Benutzer wurde nicht mehr gefolgt");
                  } else{
-                  res.status(403).send("You are not unfollowing this user!");
+                  res.status(403).send("Sie entfolgen diesem Benutzer nicht!!");
                  }
           } catch (error) {
                 res.status(500).send(error)  
           }
   }else{
-          res.status(403).send("You can not unfollow yourself");
+          res.status(403).send("Du kannst dich selbst nicht entfolgen");
   }
 }
 

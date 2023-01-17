@@ -9,15 +9,13 @@ import userRoutes from "./routes/userRouter.js";
 import convRoutes from "./routes/conversationRouter.js";
 import messageRoutes from "./routes/messageRouter.js";
 import postRoutes from './routes/postRouter.js'
-import errorHandler from "./middleware/errorHandler.js";
+import errorHandler from './middleware/errorHandler.js'
 import { verifyEmail } from "./controllers/userController.js";
 dotenv.config();
 
 const PORT =process.env.PORT || 5000;
 const URI = process.env.MONGODB_URL || "mongodb://localhost:27017/instagram_clone"
 
-import errorHandler from "./middleware/errorHandler.js";
-import postRoutes from './routes/postRouter.js'
 
 
 const app = express();
