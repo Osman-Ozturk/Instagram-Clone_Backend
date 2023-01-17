@@ -1,9 +1,19 @@
+import jwt from 'jsonwebtoken';
+import * as dotenv from 'dotenv'
+dotenv.config()
+const JWT_KEY =process.env.JWT || "mein_geheimnisePassword";
 const auth = (req, res, next) => {
         try {
-          const token = req.cookie.loginCookie;
-          const decodedToken = jwt.verify(token, process.env.JWT || "standartWert");
+          console.log(req.cookies);
+          const token = req.cookies.loginCookie;
+          console.log("token",token);
+          const decodedToken = jwt.verify(token, process.env.JWT);
+
           req.token = decodedToken;
-          next();
+
+          
+
+          next()
         } catch (error) {
           const errObj = new Error("Not authorized", { cause: error });
           errObj.statusCode = 401;

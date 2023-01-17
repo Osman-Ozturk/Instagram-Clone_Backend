@@ -11,6 +11,8 @@ import messageRoutes from "./routes/messageRouter.js";
 import postRoutes from './routes/postRouter.js'
 import errorHandler from './middleware/errorHandler.js'
 import { verifyEmail } from "./controllers/userController.js";
+import cookieParser from 'cookie-parser';
+import jwt from 'jsonwebtoken';
 dotenv.config();
 
 const PORT =process.env.PORT || 5000;
@@ -27,7 +29,13 @@ mongoose.connect(URI).then(()=>{console.log('mit mongoDB verbunden')}).catch((er
 //middleware
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors())
+/* app.use(
+  cors({
+    //origin: process.env.CLIENT || 'http://localhost:3000',
+    credentials: true,
+  })
+); */
+app.use(cookieParser());
 
 
 

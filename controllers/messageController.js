@@ -12,7 +12,10 @@ const getMessage = async (req,res,next)=>{
        
         try {
              const messages = await Message.find({conversationId:req.params.conversationId})  
-             res.status(201).json(messages)
+             const messageList = messages.map(mess =>{
+                return mess.sender +"-->"+mess.text
+             })
+             res.status(201).json(messageList)
         } catch (error) {
            next(error)     
         }

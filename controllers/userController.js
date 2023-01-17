@@ -39,6 +39,7 @@ const deleteUser = async (req, res,next) => {
 };
 const getUser = async (req, res,next) => {
   const userName = req.params.userName;
+  console.log("userName",userName);
   try {
     const user = await User.findOne({ userName: userName });
     res.status(201).json(user);
@@ -139,18 +140,20 @@ const loginUser = async (req, res, next) => {
       error.statusCode = 401;
       throw error;
     } 
-    const token = jwt.sign({email:existedUser.email,userId:existedUser._id}, JWT_KEY,{expiresIn:"1h"})
+    const token = jwt.sign({email:existedUser.email,id:existedUser._id}, process.env.JWT,{expiresIn:"1h"})
      // COOKIE CODE //
      const oneHour = 1000 * 60 * 60;
      res
        .cookie("loginCookie", token, {
          maxAge: oneHour,
          httpOnly: true,
+         sameSite: 'none',
+         //secure: true,
        })
        .json({
          auth: "loggedin",
          email: existedUser.email,
-         userId: existedUser._id,
+         id: existedUser._id,
          message: "Login SUCCESSFUL!",
          token:token
        });
