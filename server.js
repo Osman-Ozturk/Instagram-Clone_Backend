@@ -29,12 +29,12 @@ mongoose.connect(URI).then(()=>{console.log('mit mongoDB verbunden')}).catch((er
 //middleware
 app.use(express.json());
 app.use(morgan("dev"));
-/* app.use(
+app.use(
   cors({
-    //origin: process.env.CLIENT || 'http://localhost:3000',
-    credentials: true,
+    /* origin: process.env.CLIENT || 'http://localhost:3000',
+    credentials: true, */
   })
-); */
+); 
 app.use(cookieParser());
 
 
