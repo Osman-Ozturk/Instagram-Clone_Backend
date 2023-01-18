@@ -93,8 +93,8 @@ const msg = {
   to: newUser.email,
   from: "osman_0940@outlook.com",
   subject: "Email Verification",
-  text: `Zur Verifizierung der email bitte auf diese Adresse gehen: http://localhost:4000/verify/${token}`,
-  html: `<p><a href="http://localhost:4000/verify/${token}">Verifiziere deine email!</a></p>`,
+  text: `Zur Verifizierung der email bitte auf diese Adresse gehen: https://instagram-clone-tdsm.onrender.com/verify/${token}`,
+  html: `<p><a href="https://instagram-clone-tdsm.onrender.com/verify/${token}">Verifiziere deine email!</a></p>`,
 };
 const response = await sgMail.send(msg);
 const {fullName,userName,email,password,bio,profilePicture, isVerified}=newUser
