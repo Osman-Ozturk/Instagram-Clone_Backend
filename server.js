@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from 'cors'
+import multer from "multer";
 
 
 import userRoutes from "./routes/userRouter.js";
